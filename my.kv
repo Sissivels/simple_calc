@@ -1,0 +1,209 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<Mylayout>
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            id: display_entered
+            text: ""
+            font_size: 30
+            size_hint: (1, .05)      # size of the lable "box"
+            text_size : self.size    # https://kivy.org/doc/stable/api-kivy.uix.label.html
+            size: self.texture_size
+            halign: "right"
+            valign: "middle"
+            color : hex("003049")
+            canvas.before:
+                Color:
+                    rgba:   hex("eae2b7")
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
+
+        TextInput:
+            id: calc_input
+            text: "0"
+            halign: "right"             # will put the text to the left of box
+            font_size: 50
+            size_hint: (1, .15)
+            background_normal: ""
+            background_color: hex("eae2b7")
+            foreground_color : hex("003049")           #text color
+
+
+        GridLayout:
+            cols: 4
+            rows: 5
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "%"
+                background_normal: ""
+                background_color: hex("d62828")
+                on_press: root.percent()
+
+            Button:
+                id: clear
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "C"
+                background_normal: ""
+                background_color: hex("d62828")
+                on_press: root.clear()
+
+            Button:
+
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: u"\u00AB"
+                background_normal: ""
+                background_color: hex("d62828")
+                on_press: root.back_space()
+
+
+
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "/"
+                background_normal: ""
+                background_color: hex("d62828")
+                on_press: root.math_operation("/")
+
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "7"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(7)
+
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "8"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(8)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "9"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(9)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "x"
+                background_normal: ""
+                background_color: hex("f77f00")
+                on_press: root.math_operation("x")
+
+
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "4"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(4)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "5"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(5)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "6"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(6)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "-"
+                background_normal: ""
+                background_color: hex("f77f00")
+                on_press: root.math_operation("-")
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "1"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(1)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "2"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(2)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "3"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(3)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "+"
+                background_normal: ""
+                background_color: hex("f77f00")
+                on_press: root.math_operation("+")
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "+/-"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.plus_minus()
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "0"
+                background_normal: ""
+                background_color: hex("003049")
+                on_press: root.number_pressed(0)
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "."
+                background_normal: ""
+                background_color: hex("003049")
+                on_press : root.decimal_dot()
+
+            Button:
+                size_hint: (0.2, 0.2)
+                font_size: 32
+                text: "="
+                background_normal: ""
+                background_color: hex("fcbf49")
+                on_press: root.equals()
